@@ -1,0 +1,16 @@
+{
+	"client": "./client",
+	"svr": "./server",
+	"miniprogramRoot": "./client",
+	"qcloudRoot": "./server",
+	"setting": {
+		"postcss": true,
+		"es6": true,
+		"minified": true,
+		"urlCheck": false,
+		"newFeature": true
+	},
+	"appid": "wx8f0b61d64905354e",
+	"projectname": "gitxiao",
+	"condition": {}
+}
