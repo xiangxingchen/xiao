@@ -1,0 +1,25 @@
+<!--pages/weather/weather.wxml-->
+<view class='current'>
+<view>{{address}}</view>
+<view>{{current.temperature.value}}{{current.temperature.unit}}</view>
+</view>
+<view class="section">
+  <scroll-view class="scroll-view_H" scroll-x="true">
+    <view wx:for="{{forecastHourly.weather.value}}" wx:for-item="i">
+        <view>
+          <text class='scroll-item'>{{weather[i].wea}}</text>
+          <text class='scroll-item'>{{forecastHourly.temperature.value[index]}}℃</text>
+        </view>
+    </view>
+  </scroll-view>
+</view>
+
+ <scroll-view scroll-y style="height: 800rpx;">
+  <view wx:for="{{forecastDaily.temperature.value}}">
+      <view class='forecastDaily'>
+      <text></text>
+      <text>{{item.from}} - {{item.to}}</text>
+      </view>
+    </view>
+  </scroll-view>
+

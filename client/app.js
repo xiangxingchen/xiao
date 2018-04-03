@@ -13,7 +13,6 @@ App({
       // 登录
       wx.login({
         success: res => {
-          console.log('1111111', res);
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
           if (res.code) {
             //发起网络请求
@@ -23,18 +22,15 @@ App({
                 code: res.code
               },
               success: res => {
-                console.log('4321',res);
               }
             })
           } else {
-            console.log('登录失败！' + res.errMsg)
           }
         }
       })
       // 获取用户信息
       wx.getSetting({
         success: res => {
-          console.log('123', res)
           if (res.authSetting['scope.userInfo']) {
             // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
             wx.getUserInfo({
