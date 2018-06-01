@@ -1,4 +1,7 @@
 /**app.wxss**/
+ @import './font/IonIcons/stylesheet.wxss'; 
+ @import './font/FontAwesome/stylesheet.wxss';
+
 .container {
   display: flex;
   flex-direction: column;
