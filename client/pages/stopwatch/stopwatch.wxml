@@ -1,0 +1,19 @@
+<!--pages/stopwatch/stopwatch.wxml-->
+<view class='container'>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item">{{minute}}</view>
+    <view class="flex-m">:</view>    
+    <view class="flex-item">{{second}}</view>
+    <view class="flex-m">.</view>
+    <view class="flex-item">{{millisecond}}</view>
+  </view>
+  <view class='flex-wrp' style='flex-direction:row;'>
+    <view class="flex-btn"><button bindtap='reatsrt'>{{restart}}</button></view>
+    <view class="flex-btn"><button bindtap='start'>{{start}}</button></view>
+  </view>
+  <view wx:if="{{timeArray.length > 0}}"> 
+  <view wx:for="{{timeArray}}">
+  计次{{index}}: {{item.minute}} : {{item.second}}. {{item.millisecond}}
+</view>
+  </view>
+</view>

@@ -8,9 +8,20 @@ Page({
         userInfo: {},
         logged: false,
         takeSession: false,
-        requestResult: ''
+        requestResult: '',
+        menu: [
+          { title: "秒表", icon: "", id: 0, link: "stopwatch" },
+          { title: "小说", icon: "", id: 1, link: "novel" },
+          { title: "电影", icon: "", id: 2, link: "movie" },
+          { title: "天气", icon: "", id: 3, link: "weather" },          
+        ]
     },
-
+    linkTo: function(pa) {
+      const link = this.data.menu[Number(pa.target.id)].link;
+      wx.navigateTo({
+        url: `/pages/${link}/${link}`,
+      })
+    },
     // 用户登录示例
     login: function() {
         if (this.data.logged) return
@@ -109,8 +120,8 @@ Page({
 
                     success: function(res){
                         util.showSuccess('上传图片成功')
-                        console.log(res)
-                        res = JSON.parse(res.data)
+                        // console.log('1233212', JSON.parse(data.error));
+                        res = JSON.parse(res.data);
                         console.log(res)
                         that.setData({
                             imgUrl: res.data.imgUrl
@@ -216,5 +227,23 @@ Page({
         }
         util.showBusy('信道连接中...')
         this.setData({ tunnelStatus: 'closed' })
+    },
+    getLocation(){
+      wx.getLocation({
+        type: 'wgs84',
+        success: function (res) {
+          console.log('location', res)
+          var latitude = res.latitude
+          var longitude = res.longitude
+          wx.request({
+            url: `https://weatherapi.market.xiaomi.com/wtr-v3/weather/all?latitude=${latitude}&longitude=${longitude}&locationKey=weathercn%3A101010100&days=15&appKey=weather20151024&sign=zUFJoAR2ZVrDy1vF3D07&isGlobal=false&locale=zh_cn`,
+            success: (res) => {
+              console.log(res.data);
+            }
+          })
+          var speed = res.speed
+          var accuracy = res.accuracy
+        }
+      })
     }
 })
