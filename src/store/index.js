@@ -6,6 +6,7 @@ import state from './state';
 import mutations from './mutations';
 import actions from './actions';
 import getters from './getters';
+import one from './one/index';
 
 Vue.use(Vuex);
 
@@ -15,6 +16,9 @@ export default new Vuex.Store({
   mutations,
   getters,
   actions,
+  modules:{
+    one,
+  },
   plugins: [
     createPersistedState({
       storage: {

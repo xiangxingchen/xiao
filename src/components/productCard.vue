@@ -1,6 +1,6 @@
 <template>
   <div class="product-list__item ">
-        <a v-bind:href="url" class="product-list-link">
+        <a v-bind:href="url" class="product-list-link" v-if="prod.age">
             <h3 class="product-list__product-title">{{prod.packName}}</h3>
             <div class="product-list__product-description">
                 <span class="product-list__product-age">年龄: {{prod.age.propName}}</span>
