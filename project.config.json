@@ -1,8 +1,8 @@
 {
-	"client": "./client",
-	"svr": "./server",
-	"miniprogramRoot": "./client",
-	"qcloudRoot": "./server",
+	"client": "client/",
+	"svr": "server/",
+	"miniprogramRoot": "client/",
+	"qcloudRoot": "server/",
 	"setting": {
 		"postcss": true,
 		"es6": true,
@@ -12,5 +12,42 @@
 	},
 	"appid": "wx8f0b61d64905354e",
 	"projectname": "gitxiao",
-	"condition": {}
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "xx",
+					"pathName": "pages/songList/detail/detail",
+					"query": "id=2222557345",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "xxx",
+					"pathName": "pages/webview/webview",
+					"query": "url=https://music.163.com/m/at/5cd3f5bb5d3e15847c456d91",
+					"scene": null
+				}
+			]
+		}
+	}
 }

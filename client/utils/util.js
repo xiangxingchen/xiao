@@ -38,5 +38,14 @@ var showModel = (title, content) => {
         showCancel: false
     })
 }
+const formatPlayCountToStr = (playCount) => {
+  if (playCount > 100000000) {
+    return `${Number(playCount/100000000).toFixed(2)}亿`;
+  } else if (playCount > 10000) {
+    return `${Number(playCount/10000).toFixed(2)}万`;
+  } else {
+    return playCount;
+  }
+}
 
-module.exports = { formatTime, showBusy, showSuccess, showModel }
+module.exports = { formatTime, showBusy, showSuccess, showModel, formatPlayCountToStr }

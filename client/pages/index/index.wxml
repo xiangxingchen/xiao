@@ -1,17 +1,79 @@
 <!--index.wxml-->
-<view class="section">
-  <view class="weui-cell weui-cell_input">
-    <input class="weui-input" auto-focus placeholder="将会获取焦点" confirm-type="search" bindconfirm="bindconfirm" />
+<view class='home'>
+
+<!-- banner位 -->
+  <view class="banner">
+    <swiper
+    autoplay
+    circular
+    indicator-dots
+    indicator-active-color="#d33a31"
+    >
+      <block wx:for="{{bannerList}}" wx:key="unique">
+        <swiper-item>
+          <navigator class='slide-item' url="/pages/webview/webview?url={{item.url}}">
+            <image src="{{item.pic}}" class="slide-image" />
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
-  <view wx:for="{{bookList}}">
-  <view class="flex-wrp" style="flex-direction:row;">
-    <view><image src="{{item.cover}}" class="book-image" /></view>
-    <view>
-      <view class='book-title'>{{item.title}}</view>
-      <view>{{item.shortIntro.slice(0,100)}}</view>
-      <view><text>{{item.author}}</text>/<text>{{item.cat}}</text></view>
+  
+
+<!-- 导航页 -->
+  <view class="title">
+    <view wx:for="{{titleList}}" class="title-item" wx:key="unique">
+      <view class="title-icon">
+        <image src="{{item.icon}}" class="title-image-icon" />
+      </view>
+      <view>{{item.title}}</view>
     </view>
   </view>
-</view>
+
+
+  <!-- 推荐歌单 -->
+  <view class="songlist">
+    <view class="songlist-title">
+      <view>推荐歌单</view>
+      <view class="square">歌单广场</view>
+    </view>
+   
+   <view class="personalized">
+     <navigator wx:key="unique" wx:for="{{personalized}}" class="personalized-item" url="/pages/songList/detail/detail?id={{item.id}}">
+      <image src="{{item.picUrl}}" class="personalized-pic" />
+      <view class="playCount">
+        <image src="../../image/home/playCount.png" class="play-icon"/>
+        {{item.playCountStr}}
+      </view>
+      <view class="personalized-title">{{item.name}}</view>
+    </navigator>
+   </view>
+  </view>
+
+  <!-- 新碟/新歌 -->
+  <view class="songlist">
+    <view class="tab-header">
+      <view class="tab-header_title">
+        <view
+          wx:for="{{typeList.titleList}}"
+          wx:key="unique"
+          data-id="{{item.type}}"
+          class="tab-header_title-item {{item.type == type&&'tab-header_title-item-active'}}"
+          bindtap="tapNewSong"
+          >{{item.title}}</view>
+      </view>
+      <navigator url="" class="tab-header-more">{{typeList.moreList[type].desc}}</navigator>
+    </view>
+
+    <view class="tab-content">
+      <view class="song-row">
+        <navigator wx:key="unique" wx:for="{{albums}}" class="personalized-item" url="/pages/songList/detail/detail?id={{item.id}}">
+          <image src="{{item.picUrl}}" class="personalized-pic" />
+          <view class="personalized-title">{{item.name}}</view>
+        </navigator>
+      </view>
+     
+    </view>
+  </view>
 </view>
    

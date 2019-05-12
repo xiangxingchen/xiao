@@ -5,7 +5,9 @@
     "pages/weather/weather",
     "pages/movie/movie",
     "pages/novel/novel",
-    "pages/stopwatch/stopwatch"
+    "pages/stopwatch/stopwatch",
+    "pages/songList/detail/detail",
+    "pages/webview/webview"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -41,5 +43,6 @@
         "selectedIconPath": "image/mine-active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
